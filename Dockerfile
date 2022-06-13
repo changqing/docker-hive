@@ -15,7 +15,7 @@ WORKDIR /opt
 
 COPY sources.list /etc/apt/sources.list
 #Install Hive and PostgreSQL JDBC
-RUN apt-get update && apt-get install -y wget procps && \
+RUN apt-get update && apt-get install -y --force-yes  wget procps && \
 	wget https://dlcdn.apache.org/hive/stable-2/apache-hive-2.3.9-bin.tar.gz && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	mv apache-hive-$HIVE_VERSION-bin hive && \
