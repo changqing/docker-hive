@@ -8,9 +8,12 @@ ENV HIVE_VERSION 2.3.9
 ENV HIVE_HOME /opt/hive
 ENV PATH $HIVE_HOME/bin:$PATH
 ENV HADOOP_HOME /opt/hadoop-$HADOOP_VERSION
+#ENV http_proxy "http://10.239.4.80:913"
+#ENV https_proxy "http://10.239.4.80:913"
 
 WORKDIR /opt
 
+COPY sources.list /etc/apt/sources.list
 #Install Hive and PostgreSQL JDBC
 RUN apt-get update && apt-get install -y wget procps && \
 	wget https://dlcdn.apache.org/hive/stable-2/apache-hive-2.3.9-bin.tar.gz && \
